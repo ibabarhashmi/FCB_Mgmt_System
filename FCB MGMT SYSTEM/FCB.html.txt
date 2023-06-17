@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona Team Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>FC Barcelona Team Management System</h1>
+    </header>
+
+    <main>
+        <div id="player-list">
+            <!-- Player cards will be dynamically added here -->
+        </div>
+
+        <div id="loader">
+            <img src="loader.gif" alt="Loading">
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

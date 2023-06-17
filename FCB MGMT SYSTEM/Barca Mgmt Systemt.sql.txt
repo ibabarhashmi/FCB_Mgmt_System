@@ -1,0 +1,45 @@
+-- Players table
+CREATE TABLE Players (
+    player_id INT PRIMARY KEY,
+    player_name VARCHAR(50),
+    position VARCHAR(50),
+    age INT,
+    nationality VARCHAR(50),
+    contract_expiry DATE
+);
+
+-- PlayerAttributes table
+CREATE TABLE PlayerAttributes (
+    player_id INT PRIMARY KEY,
+    skills INT,
+    stamina INT,
+    speed INT,
+    agility INT,
+    strength INT,
+    FOREIGN KEY (player_id) REFERENCES Players(player_id)
+);
+
+-- Transfers table
+CREATE TABLE Transfers (
+    transfer_id INT PRIMARY KEY,
+    player_id INT,
+    transfer_date DATE,
+    transfer_fee DECIMAL(10, 2),
+    FOREIGN KEY (player_id) REFERENCES Players(player_id)
+);
+
+-- Coaches table
+CREATE TABLE Coaches (
+    coach_id INT PRIMARY KEY,
+    coach_name VARCHAR(50),
+    coaching_experience INT
+);
+
+-- Player-Coach Relationship table
+CREATE TABLE PlayerCoach (
+    player_id INT,
+    coach_id INT,
+    PRIMARY KEY (player_id, coach_id),
+    FOREIGN KEY (player_id) REFERENCES Players(player_id),
+    FOREIGN KEY (coach_id) REFERENCES Coaches(coach_id)
+);

@@ -1,0 +1,41 @@
+// Simulated data for player cards
+const playersData = [
+    { name: "Lionel Messi", position: "Forward", age: 34 },
+    { name: "Gerard Piqué", position: "Defender", age: 34 },
+    { name: "Sergio Busquets", position: "Midfielder", age: 33 },
+    // Add more player data here
+];
+
+// Function to create player cards
+function createPlayerCard(player) {
+    const card = document.createElement("div");
+    card.classList.add("player-card");
+
+    const name = document.createElement("h2");
+    name.textContent = player.name;
+
+    const position = document.createElement("p");
+    position.textContent = `Position: ${player.position}`;
+
+    const age = document.createElement("p");
+    age.textContent = `Age: ${player.age}`;
+
+    card.appendChild(name);
+    card.appendChild(position);
+    card.appendChild(age);
+
+    return card;
+}
+
+// Function to render player cards
+function renderPlayerCards() {
+    const playerList = document.getElementById("player-list");
+
+    playersData.forEach((player) => {
+        const card = createPlayerCard(player);
+        playerList.appendChild(card);
+    });
+}
+
+// Render player cards when the page loads
+document.addEventListener("DOMContentLoaded", renderPlayerCards);

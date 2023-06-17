@@ -1,0 +1,22 @@
+<?php
+
+// Fetch players from the database
+$query = "SELECT * FROM Players";
+$result = mysqli_query($conn, $query);
+
+$players = array();
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $player = array(
+        'name' => $row['player_name'],
+        'position' => $row['position'],
+        'age' => $row['age']
+    );
+
+    $players[] = $player;
+}
+
+// Return players as JSON response
+header('Content-Type: application/json');
+echo json_encode($players);
+?>

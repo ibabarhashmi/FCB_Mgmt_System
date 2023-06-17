@@ -1,0 +1,24 @@
+// Function to render player cards
+function renderPlayerCards(players) {
+    const playerList = document.getElementById("player-list");
+
+    players.forEach((player) => {
+        const card = createPlayerCard(player);
+        playerList.appendChild(card);
+    });
+}
+
+// Render player cards using AJAX
+document.addEventListener("DOMContentLoaded", () => {
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const players = JSON.parse(this.responseText);
+            renderPlayerCards(players);
+        }
+    };
+
+    xhttp.open("GET", "get_players.php", true);
+    xhttp.send();
+});
